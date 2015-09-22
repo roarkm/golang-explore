@@ -10,7 +10,7 @@ func TestShouldSolveVerbatim(t *testing.T) {
     // The sum of these multiples is 23.
 
     // FIND THE SUM OF ALL THE MULTIPLES OF 3 OR 5 BELOW 1000.
-    n, e := findIntsLessThanAndDivisibleBy(1000, 3, 5)
+    n, e := sumMultiplesLessThan(1000, 3, 5)
     r := 233168
     if n != r {
         t.Errorf("Result should equal %d but was %d", r, n)
@@ -21,17 +21,17 @@ func TestShouldSolveVerbatim(t *testing.T) {
 }
 
 func TestShouldSetErrorForArsOutOfBounds(t * testing.T) {
-    _, e := findIntsLessThanAndDivisibleBy(1000, -3, 5)
+    _, e := sumMultiplesLessThan(1000, -3, 5)
     if e == nil {
         t.Errorf("No error was set when a multiple was set to a negative.")
     }
 
-    _, e = findIntsLessThanAndDivisibleBy(-1000, 3, 5)
+    _, e = sumMultiplesLessThan(-1000, 3, 5)
     if e == nil {
         t.Errorf("No error was set when the cap was set to a negative.")
     }
 
-    _, e = findIntsLessThanAndDivisibleBy(100, 101, 5)
+    _, e = sumMultiplesLessThan(100, 101, 5)
     if e == nil {
         t.Errorf("No error was set when a multiple was greater than the cap.")
     }
@@ -39,25 +39,25 @@ func TestShouldSetErrorForArsOutOfBounds(t * testing.T) {
 
 
 func TestShouldFindOccurencesOfMultiples(t * testing.T) {
-    n, _ := findIntsLessThanAndDivisibleBy(10, 3)
+    n, _ := sumMultiplesLessThan(10, 3)
     r := 18
     if n != r {
         t.Errorf("Result should equal %d but was %d", r, n)
     }
 
-    n, _ = findIntsLessThanAndDivisibleBy(100, 9)
+    n, _ = sumMultiplesLessThan(100, 9)
     r = 594
     if n != r {
         t.Errorf("Result should equal %d but was %d", r, n)
     }
 
-    n, _ = findIntsLessThanAndDivisibleBy(99, 9)
+    n, _ = sumMultiplesLessThan(99, 9)
     r = 495
     if n != r {
         t.Errorf("Result should equal %d but was %d", r, n)
     }
 
-    n, _ = findIntsLessThanAndDivisibleBy(100, 9, 4, 23)
+    n, _ = sumMultiplesLessThan(100, 9, 4, 23)
     r = 1824
     if n != r {
         t.Errorf("Result should equal %d but was %d", r, n)

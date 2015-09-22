@@ -10,15 +10,15 @@ import (
     "math"
 )
 
-func findIntsLessThanAndDivisibleBy(lessThan int, multiples... int) (int, error) {
+func sumMultiplesLessThan(upperLim int, multiples... int) (int, error) {
     encountered := map[int]bool{}
     sum := 0
     for _, num := range multiples {
-        if num <= 0 || num > lessThan {
+        if num <= 0 || num > upperLim {
             return int(math.NaN()), errors.New("Argument out of bounds")
         }
 
-        for i :=0; i < lessThan; i += num {
+        for i :=0; i < upperLim; i += num {
             if encountered[i] == true {
             } else {
                 encountered[i] = true
@@ -31,7 +31,7 @@ func findIntsLessThanAndDivisibleBy(lessThan int, multiples... int) (int, error)
 }
 
 func main() {
-    r, e := findIntsLessThanAndDivisibleBy(1000, 3, 5)
+    r, e := sumMultiplesLessThan(1000, 3, 5)
     if e != nil {
         fmt.Println(e)
     } else {
