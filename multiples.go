@@ -14,7 +14,7 @@ func findIntsLessThanAndDivisibleBy(lessThan int, multiples... int) (int, error)
     encountered := map[int]bool{}
     list := []int{}
     for _, num := range multiples {
-        if num <= 0 {
+        if num <= 0 || num > lessThan {
             return int(math.NaN()), errors.New("Argument out of bounds")
         }
 
