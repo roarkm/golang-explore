@@ -12,7 +12,7 @@ import (
 
 func findIntsLessThanAndDivisibleBy(lessThan int, multiples... int) (int, error) {
     encountered := map[int]bool{}
-    list := []int{}
+    sum := 0
     for _, num := range multiples {
         if num <= 0 || num > lessThan {
             return int(math.NaN()), errors.New("Argument out of bounds")
@@ -22,15 +22,11 @@ func findIntsLessThanAndDivisibleBy(lessThan int, multiples... int) (int, error)
             if encountered[i] == true {
             } else {
                 encountered[i] = true
-                list = append(list, i)
+                sum += i
             }
         }
     }
 
-    sum := 0
-    for _, n := range list {
-        sum += n
-    }
     return sum, nil
 }
 
