@@ -2,7 +2,7 @@
 // The sum of these multiples is 23.
 // FIND THE SUM OF ALL THE MULTIPLES OF 3 OR 5 BELOW 1000.
 
-package main
+package projeuler
 
 import (
     "fmt"
