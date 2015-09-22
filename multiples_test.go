@@ -1,4 +1,4 @@
-package projeuler_test
+package euler
 
 import (
     "testing"
